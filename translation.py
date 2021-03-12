@@ -8,3 +8,4 @@ class Translation(object):
     AFTER_SUCCESSFUL_UPLOAD_MSG = "<b>If you find this bot useful, please share with your friends and family. If any complaints contact @InfinityBOTs_Support</b>"
     SAVED_RECVD_DOC_FILE = "<b>Document Downloaded Successfully 😙</b>"
     CUSTOM_CAPTION_UL_FILE = "Uploaded by @FileRenamerIBot"
+    REPLY_TO_DOC_FOR_RENAME_FILE = "<b>Reply to a Telegram media with new file name</b>"
