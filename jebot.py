@@ -51,7 +51,7 @@ bot = Client(
 @bot.on_message(filters.command("start"))
 async def start(client, message):
    if message.chat.type == 'private':
-       await Jebot.send_message(
+       await bot.send_message(
                chat_id=message.chat.id,
                text="""<b>Hey There, I'm a File Renamer Bot
 
@@ -74,7 +74,7 @@ Hit help button to find out more about how to use me</b>""",
 @bot.on_message(filters.command("help"))
 async def help(client, message):
     if message.chat.type == 'private':   
-        await Jebot.send_message(
+        await bot.send_message(
                chat_id=message.chat.id,
                text="""<b>Forward any telegram media file to me. The reply it with `/rename newfilename.extension`
 
