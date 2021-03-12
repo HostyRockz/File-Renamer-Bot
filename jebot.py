@@ -84,9 +84,12 @@ async def help(client, message):
     reply_markup=InlineKeyboardMarkup(
                                 [[
                                         InlineKeyboardButton(
-                                            "About", callback_data="about"),
+                                            "Back", callback_data="start"),
                                         InlineKeyboardButton(
-                                            "Channel", url="https://t.me/Infinity_BOTs")
+                                            "About", callback_data="about"),
+                                  ],[
+                                        InlineKeyboardButton(
+                                            "Source Code", url="https://github.com/ImJanindu/File-Renamer-Bot")
                                     ]]
                             ),        
             disable_web_page_preview=True,        
@@ -109,7 +112,7 @@ async def about(client, message):
      reply_markup=InlineKeyboardMarkup(
                                 [[
                                         InlineKeyboardButton(
-                                            "Back", callback_data="about"),
+                                            "Back", callback_data="help"),
                                         InlineKeyboardButton(
                                             "Source Code", url="https://github.com/ImJanindu/File-Renamer-Bot")
                                     ]]
@@ -226,6 +229,9 @@ async def button(bot, update):
       elif "about" in cb_data:
         await update.message.delete()
         await about(bot, update.message)
+      elif "start" in cb_data:
+        await update.message.delete()
+        await start(bot, update.message)
 
 print(
     """
