@@ -76,7 +76,10 @@ async def help(client, message):
     if message.chat.type == 'private':   
         await bot.send_message(
                chat_id=message.chat.id,
-               text="""<b>Forward any telegram media file to me. The reply it with `/rename newfilename.extension`
+               text="""<b>File Renamer Help!
+
+👉 Forward any telegram media file to me
+👉 Then reply it with `/rename newfilename.extension`
 
 ~ @Infinity_BOTs</b>""",
             reply_to_message_id=message.message_id)
