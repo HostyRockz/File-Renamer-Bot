@@ -78,7 +78,7 @@ async def help(client, message):
 
 👉 Forward any telegram media file to me
 
-👉 Then reply it with <code>/rename newfilename.extension</code>
+👉 Then reply it with <code>/rename NewFile.extension</code>
 
 ~ @Infinity_BOTs</b>""",
     reply_markup=InlineKeyboardMarkup(
