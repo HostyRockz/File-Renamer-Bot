@@ -13,7 +13,7 @@
     "success_url": "https://t.me/Infinity_BOTs",
     "env": {
         "TG_BOT_TOKEN": {
-            "description": "You Telegram Bot Token from @BotFather",
+            "description": "Your Telegram Bot Token from @BotFather",
             "value": ""
         },
         "API_HASH": {
