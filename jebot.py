@@ -83,7 +83,7 @@ async def help(client, message):
         
 
 @bot.on_message(filters.command("rename"))
-async def rename_doc(bot, update):
+async def rename(bot, update):
    
     TRChatBase(update.from_user.id, update.text, "rename")
     if (" " in update.text) and (update.reply_to_message is not None):
