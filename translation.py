@@ -5,7 +5,7 @@ class Translation(object):
     UPLOAD_START = "<b>Download successful 😌 \nNow uploading. Please wait 🥺</b>"
     RCHD_BOT_API_LIMIT = "<b>Size greater than maximum allowed size (50MB). 🙄 Neverthless, trying to upload.</b>"
     RCHD_TG_API_LIMIT = "<b>Downloaded in {} seconds.\nDetected File Size: {}\nWTF 😬, I cannot upload files greater than 1.5GB due to Telegram API limitations 😒</b>"
-    AFTER_SUCCESSFUL_UPLOAD_MSG = "<b>If you find this bot useful, please share with your friends and family. If any complaints contact @ImJanindu</b>"
+    AFTER_SUCCESSFUL_UPLOAD_MSG = "<b>If you find this bot useful, please share with your friends and family. If any complaints contact @InfinityBOTs_Support</b>"
     AFTER_SUCCESSFUL_UPLOAD_MSG_WITH_TS = "<b>Downloaded in {} seconds. \nUploaded in {} seconds. \n\nJoin our channel for bot updates @Infinity_BOTs</b>"
     NOT_AUTH_USER_TEXT_FILE_SIZE = "<b>Detected File Size: {}. Free Users can only upload: {}\nPlease /upgrade your subscription.\nIf you think this is a bug, please contact <a href='https://telegram.dog/ImJanindu'>Janindu</a></b>"
     SAVED_CUSTOM_THUMB_NAIL = "<b>Custom video / file thumbnail saved. 🤗 This image will be used in the video / file.</b>"
