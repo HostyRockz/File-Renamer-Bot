@@ -79,7 +79,7 @@ async def help(client, message):
                text="""<b>Forward any telegram media file to me. The reply it with `/rename newfilename.extension`
 
 ~ @Infinity_BOTs</b>""",
-            reply_to_message_id=message.message_id
+            reply_to_message_id=message.message_id)
         
 
 @bot.on_message(filters.command("rename"))
