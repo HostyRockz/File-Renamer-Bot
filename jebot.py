@@ -77,7 +77,8 @@ async def help(client, message):
                text="""<b>File Renamer Help!
 
 👉 Forward any telegram media file to me
-👉 Then reply it with `/rename newfilename.extension`
+
+👉 Then reply it with <code>/rename newfilename.extension</code>
 
 ~ @Infinity_BOTs</b>""",
     reply_markup=InlineKeyboardMarkup(
@@ -222,7 +223,7 @@ async def button(bot, update):
         await help(bot, update.message)
       elif "about" in cb_data:
         await update.message.delete()
-        await help(bot, update.message)
+        await about(bot, update.message)
 
 print(
     """
