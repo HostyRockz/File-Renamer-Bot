@@ -63,7 +63,10 @@ Hit help button to find out more about how to use me</b>""",
                                         InlineKeyboardButton(
                                             "Help", callback_data="help"),
                                         InlineKeyboardButton(
-                                            "Channel", url="https://t.me/Infinity_BOTs")
+                                            "Channel", url="https://t.me/Infinity_BOTs"),
+                                 ],[
+                                        InlineKeyboardButton(
+                                            "Source Code", url="https://github.com/ImJanindu/File-Renamer-Bot")
                                     ]]
                             ),        
             disable_web_page_preview=True,        
