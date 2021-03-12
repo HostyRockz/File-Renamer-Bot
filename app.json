@@ -1,6 +1,6 @@
 {
     "name": "File Renamer Bot",
-    "description": "A bot that can rename any telegram media files.",
+    "description": "A bot that can rename any telegram media file.",
     "logo": "https://telegra.ph/file/8628d61832f59ac0e3d4c.jpg",
     "keywords": [
         "Renamer",
