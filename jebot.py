@@ -97,17 +97,19 @@ async def about(client, message):
     if message.chat.type == 'private':   
         await bot.send_message(
                chat_id=message.chat.id,
-               text="""<b>About File Renamer!
+               text="""<b>About File Renamer!</b>
 
-♞ Developer: [Janindu 🇱🇰](https://t.me/ImJanindu))
+<b>♞ Developer:</b> <a href="https://t.me/ImJanindu">Janindu 🇱🇰</a>
 
-♞ Support: [InfinityBOTs Support](https://t.me/InfinityBOTs_Support)
+<b>♞ Support:</b> <a href="https://t.me/InfinityBOTs_Support">Infinity BOTs Support</a>
 
-♞ Library: [Pyrogram](https://github.com/pyrogram/pyrogram)
+<b>♞ Library:</b> <a href="https://github.com/pyrogram/pyrogram">Pyrogram</a>
 
-~ @Infinity_BOTs</b>""",
+<b>~ @Infinity_BOTs</b>""",
      reply_markup=InlineKeyboardMarkup(
                                 [[
+                                        InlineKeyboardButton(
+                                            "Back", callback_data="about"),
                                         InlineKeyboardButton(
                                             "Source Code", url="https://github.com/ImJanindu/File-Renamer-Bot")
                                     ]]
