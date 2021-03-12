@@ -195,4 +195,4 @@ Join @Infinity_BOTs
 """
 )
 
-Jebot.run()
+bot.run()
