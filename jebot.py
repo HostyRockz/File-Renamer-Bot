@@ -17,6 +17,7 @@ logger = logging.getLogger(__name__)
 
 import os
 import time
+import aiohttp
 
 # the secret configuration specific things
 if bool(os.environ.get("WEBHOOK", False)):
@@ -36,16 +37,52 @@ from helper_utils.display_progress import progress_for_pyrogram
 from hachoir.metadata import extractMetadata
 from hachoir.parser import createParser
 # https://stackoverflow.com/a/37631799/4723940
+from pyrogram import Client, filters
 from PIL import Image
+from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup, CallbackQuery, InlineQuery, InputTextMessageContent
 
-Jebot = Client(
+bot = Client(
    "File Renamer",
    api_id=Config.APP_ID,
    api_hash=Config.API_HASH,
    bot_token=Config.TG_BOT_TOKEN,
 )
 
-@Jebot.on_message(filters.command(["rename"]))
+@bot.on_message(filters.command("start"))
+async def start(client, message):
+   if message.chat.type == 'private':
+       await Jebot.send_message(
+               chat_id=message.chat.id,
+               text="""<b>Hey There, I'm a File Renamer Bot
+
+Made by @ImJanindu 🇱🇰
+
+Hit help button to find out more about how to use me</b>""",   
+                            reply_markup=InlineKeyboardMarkup(
+                                [[
+                                        InlineKeyboardButton(
+                                            "Help", callback_data="help"),
+                                        InlineKeyboardButton(
+                                            "Channel", url="https://t.me/Infinity_BOTs")
+                                    ]]
+                            ),        
+            disable_web_page_preview=True,        
+            parse_mode="html",
+            reply_to_message_id=message.message_id
+        )
+
+@bot.on_message(filters.command("help"))
+async def help(client, message):
+    if message.chat.type == 'private':   
+        await Jebot.send_message(
+               chat_id=message.chat.id,
+               text="""<b>Forward any telegram media file to me. The reply it with `/rename newfilename.extension`
+
+~ @Infinity_BOTs</b>""",
+            reply_to_message_id=message.message_id
+        
+
+@bot.on_message(filters.command("rename"))
 async def rename_doc(bot, update):
    
     TRChatBase(update.from_user.id, update.text, "rename")
@@ -143,6 +180,13 @@ async def rename_doc(bot, update):
             text=Translation.REPLY_TO_DOC_FOR_RENAME_FILE,
             reply_to_message_id=update.message_id
         )
+
+@bot.on_callback_query()
+async def button(bot, update):
+      cb_data = update.data
+      if "help" in cb_data:
+        await update.message.delete()
+        await help(bot, update.message)
 
 print(
     """
