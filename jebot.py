@@ -67,9 +67,7 @@ Hit help button to find out more about how to use me</b>""",
                                     ]]
                             ),        
             disable_web_page_preview=True,        
-            parse_mode="html",
-            reply_to_message_id=message.message_id
-        )
+            parse_mode="html")
 
 @bot.on_message(filters.command("help"))
 async def help(client, message):
@@ -82,7 +80,39 @@ async def help(client, message):
 👉 Then reply it with `/rename newfilename.extension`
 
 ~ @Infinity_BOTs</b>""",
-            reply_to_message_id=message.message_id)
+    reply_markup=InlineKeyboardMarkup(
+                                [[
+                                        InlineKeyboardButton(
+                                            "About", callback_data="about"),
+                                        InlineKeyboardButton(
+                                            "Channel", url="https://t.me/Infinity_BOTs")
+                                    ]]
+                            ),        
+            disable_web_page_preview=True,        
+            parse_mode="html")
+
+@bot.on_message(filters.command("about"))
+async def about(client, message):
+    if message.chat.type == 'private':   
+        await bot.send_message(
+               chat_id=message.chat.id,
+               text="""<b>About File Renamer!
+
+♞ Developer: [Janindu 🇱🇰](https://t.me/ImJanindu))
+
+♞ Support: [InfinityBOTs Support](https://t.me/InfinityBOTs_Support)
+
+♞ Library: [Pyrogram](https://github.com/pyrogram/pyrogram)
+
+~ @Infinity_BOTs</b>""",
+     reply_markup=InlineKeyboardMarkup(
+                                [[
+                                        InlineKeyboardButton(
+                                            "Source Code", url="https://github.com/ImJanindu/File-Renamer-Bot")
+                                    ]]
+                            ),        
+            disable_web_page_preview=True,        
+            parse_mode="html"))
         
 
 @bot.on_message(filters.command("rename"))
@@ -188,6 +218,10 @@ async def rename(bot, update):
 async def button(bot, update):
       cb_data = update.data
       if "help" in cb_data:
+        await update.message.delete()
+        await help(bot, update.message)
+      else:
+      if "about" in cb_data:
         await update.message.delete()
         await help(bot, update.message)
 
