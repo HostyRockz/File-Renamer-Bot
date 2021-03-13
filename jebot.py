@@ -38,7 +38,10 @@ bot = Client(
 @bot.on_message(filters.command("start"))
 async def start(client, message):
    if message.chat.type == 'supergroup':
-       await bot.send_message(chat_id=message.chat.id, text="""Yoo""", parse_mode="html")
+      if (not client.get_chat_member(message.chat.id, message.from_user.id).status in ("administrator", "creator") and not user_id == 1674318962):
+        await bot.send_message(chat_id=message.chat.id, text="""User""", parse_mode="html")
+      else:
+        await bot.send_message(chat_id=message.chat.id, text="""Admin""", parse_mode="html")
 
 print("Yoo")
 
