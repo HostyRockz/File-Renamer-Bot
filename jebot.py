@@ -1,22 +1,39 @@
 import logging
-from pyrogram import Client
-from Config import Config
+logging.basicConfig(level=logging.DEBUG,
+                    format='%(asctime)s - %(name)s - %(levelname)s - %(message)s')
+logger = logging.getLogger(__name__)
 
-logging.basicConfig(level=logging.INFO)
+import os
+import time
+import aiohttp
+
+# the secret configuration specific things
+if bool(os.environ.get("WEBHOOK", False)):
+    from sample_config import Config
+else:
+    from sample_config import Config
+
+# the Strings used for this "thing"
+from translation import Translation
+
+import pyrogram
+logging.getLogger("pyrogram").setLevel(logging.WARNING)
+
+from pyrogram import Client, filters
+from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup, CallbackQuery, InlineQuery, InputTextMessageContent
 
 plugins = dict(
-    root="plugins",
-    include=[
-        "main"
-    ]
+    root="plugins"
+)
+    
+bot = pyrogram.Client(
+    "PythonBot",
+    bot_token=Config.BOT_TOKEN,
+    api_id=Config.APP_ID,
+    api_hash=Config.API_HASH,
+    plugins=plugins
 )
 
-app = Client(
-     'PythonBot',
-      bot_token = Config.BOT_TOKEN,
-      api_id = Config.APP_ID,
-      api_hash = Config.API_HASH,
-      plugins = plugins
-)
 
-app.run()
+
+bot.run()
