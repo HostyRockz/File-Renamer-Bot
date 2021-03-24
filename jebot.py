@@ -48,7 +48,5 @@ async def start(client, message):
       
      
     
-    
-print("Yoo")
 
 bot.run()
