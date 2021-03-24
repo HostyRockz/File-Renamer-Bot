@@ -42,6 +42,7 @@ async def start(client, message):
   if await is_cancel(client, api.text):
     return
   try:
+    await bot.send_message(chat_id=message.chat.id, text="GOT")
     
 
       
