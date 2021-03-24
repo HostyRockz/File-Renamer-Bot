@@ -3,6 +3,8 @@ from pyromod import listen
 from pyrogram import Client, filters
 from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup, CallbackQuery, InlineQuery, InputTextMessageContent
 
+logging.basicConfig(level=logging.INFO)
+
 @Client.on_message(filters.private & filters.incoming & filters.command(['start']))
 def _start(client, message):
     client.send_message(message.chat.id,
