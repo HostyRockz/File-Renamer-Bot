@@ -38,7 +38,7 @@ async def start(client, message):
     if await is_cancel(client, name.text):
         return
     try:
-        await client.reply("`API_HASH` is Invalid.\nPress /start to Start again.")
+        await bot.reply("`API_HASH` is Invalid.\nPress /start to Start again.")
         
        
     
