@@ -3,7 +3,7 @@ import os
 class Config():
   ENV = bool(os.environ.get('ENV', False))
   if ENV:
-    BOT_TOKEN = os.environ.get("BOT_TOKEN", None)
+    BOT_TOKEN = os.environ.get("TG_BOT_TOKEN", None)
     APP_ID = os.environ.get("APP_ID", 6)
     API_HASH = os.environ.get("API_HASH", None)
   else:
