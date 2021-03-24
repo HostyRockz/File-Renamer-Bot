@@ -39,14 +39,6 @@ bot = Client(
 async def start(client, message):
    chatid = message.chat.id
    name = await bot.ask(chatid, 'YOUR NAME')
-   if await is_cancel(client, api.text):
-     return
-   try:
-     await bot.send_message(chat_id=message.chat.id, text="GOT")
+       
     
-
-      
-     
-    
-
 bot.run()
