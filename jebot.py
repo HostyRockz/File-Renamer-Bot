@@ -35,6 +35,10 @@ bot = Client(
 async def start(client, message):
    chatid = message.chat.id
    name = await bot.ask(chatid, 'YOUR NAME')
+   if await is_cancel(client, name.text):
+        return
+    try:
+        await client.reply("GOT")
        
     
 bot.run()
