@@ -7,8 +7,7 @@ else:
 
 from pyrogram import Client, filters    
 from translation import Translation
-from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup, CallbackQuery, InlineQuery, InputTextMessageContent
 
 @Client.on_message(filters.command("start"))
 async def start(client, message):
-  await Client.send_message(chat_id=message.chat.id, text=f"YO")
+  await client.send_message(chat_id=message.chat.id, text=f"YO")
