@@ -11,4 +11,4 @@ from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup, CallbackQ
 
 @Client.on_message(filters.command("start"))
 async def start(client, message):
-  await bot.send_message(chat_id=message.chat.id, text=f"YO")
+  await Client.send_message(chat_id=message.chat.id, text=f"YO")
