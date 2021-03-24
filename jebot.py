@@ -36,7 +36,7 @@ async def start(client, message):
     chatid = message.chat.id
     name = await bot.ask(chatid, 'YOUR NAME')
     got = name.text
-    await bot.reply(f"{got}")
+    await Client.reply(f"{got}")
 
   
 bot.run()
