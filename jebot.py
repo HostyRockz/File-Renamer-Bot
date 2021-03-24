@@ -35,17 +35,8 @@ bot = Client(
 async def start(client, message):
     chatid = message.chat.id
     name = await bot.ask(chatid, 'YOUR NAME')
-    if await is_cancel(client, name.text):
-        return
-    try:
-        await bot.reply("`API_HASH` is Invalid.\nPress /start to Start again.")
-        
-    
-    
-async def is_cancel(client, message):
-    if text.startswith("/cancel"):
-        await bot.reply("Process Cancelled.")
-        return True
-    return False
+    got = name.text
+    await bot.reply(f"{got}")
+
   
 bot.run()
