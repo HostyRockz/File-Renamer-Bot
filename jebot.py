@@ -18,25 +18,16 @@ from translation import Translation
 import pyrogram
 logging.getLogger("pyrogram").setLevel(logging.WARNING)
 
-from pyromod import listen
-from hachoir.metadata import extractMetadata
-from hachoir.parser import createParser
-from pyrogram import Client, filters
-from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup, CallbackQuery, InlineQuery, InputTextMessageContent
+from pyrogram import Client
+
+plugins = dict(root="plugins")
 
 bot = Client(
    "Python Bot",
    api_id=Config.APP_ID,
    api_hash=Config.API_HASH,
    bot_token=Config.TG_BOT_TOKEN,
+    plugins = plugins
 )
-
-@bot.on_message(filters.command("start"))
-async def start(client, message):
-    chatid = message.chat.id
-    name = await bot.ask(chatid, 'YOUR NAME')
-    got = name.text
-    await bot.send_message(chat_id=message.chat.id, text=f"{got}")
-
-  
+ 
 bot.run()
