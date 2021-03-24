@@ -37,12 +37,12 @@ bot = Client(
 
 @bot.on_message(filters.command("start"))
 async def start(client, message):
-  chatid = message.chat.id
-  name = await bot.ask(chatid, 'YOUR NAME')
-  if await is_cancel(client, api.text):
-    return
-  try:
-    await bot.send_message(chat_id=message.chat.id, text="GOT")
+   chatid = message.chat.id
+   name = await bot.ask(chatid, 'YOUR NAME')
+   if await is_cancel(client, api.text):
+     return
+   try:
+     await bot.send_message(chat_id=message.chat.id, text="GOT")
     
 
       
