@@ -18,6 +18,7 @@ from translation import Translation
 import pyrogram
 logging.getLogger("pyrogram").setLevel(logging.WARNING)
 
+from pyromod import listen
 from helper_utils.chat_base import TRChatBase
 from helper_utils.display_progress import progress_for_pyrogram
 
