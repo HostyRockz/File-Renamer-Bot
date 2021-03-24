@@ -1,4 +1,5 @@
 import logging
+from pyrogram import Client
 logging.basicConfig(level=logging.DEBUG,
                     format='%(asctime)s - %(name)s - %(levelname)s - %(message)s')
 logger = logging.getLogger(__name__)
@@ -12,22 +13,22 @@ if bool(os.environ.get("WEBHOOK", False)):
 else:
     from sample_config import Config
 
-# the Strings used for this "thing"
-from translation import Translation
+logging.basicConfig(level=logging.INFO)
 
-import pyrogram
-logging.getLogger("pyrogram").setLevel(logging.WARNING)
-
-from pyrogram import Client
-
-plugins = dict(root="plugins")
-
-bot = Client(
-   "Python Bot",
-   api_id=Config.APP_ID,
-   api_hash=Config.API_HASH,
-   bot_token=Config.TG_BOT_TOKEN,
-    plugins = plugins
+plugins = dict(
+    root="plugins",
+    include=[
+        "forceSubscribe",
+        "help"
+    ]
 )
- 
-bot.run()
+
+app = Client(
+     'PythonBot',
+      bot_token = Config.BOT_TOKEN,
+      api_id = Config.APP_ID,
+      api_hash = Config.API_HASH,
+      plugins = plugins
+)
+
+app.run()
