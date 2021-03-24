@@ -4,9 +4,17 @@ from pyrogram import Client, filters
 from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup, CallbackQuery, InlineQuery, InputTextMessageContent
 
 
-@Client.on_message(filters.command("start"))
-async def start(client, message):
-    chatid = message.chat.id
-    name = await Client.ask(chatid, 'YOUR NAME')
-    got = name.text
-    await Client.send_message(chat_id=message.chat.id, text=f"{got}")
+import logging
+from Config import Messages as tr
+from pyrogram import Client, filters
+from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton
+
+logging.basicConfig(level=logging.INFO)
+
+@Client.on_message(filters.private & filters.incoming & filters.command(['start']))
+def _start(client, message):
+    client.send_message(message.chat.id,
+        text="YO",
+        parse_mode="markdown",
+        reply_to_message_id=message.message_id
+        )
