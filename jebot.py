@@ -19,9 +19,6 @@ import pyrogram
 logging.getLogger("pyrogram").setLevel(logging.WARNING)
 
 from pyromod import listen
-from helper_utils.chat_base import TRChatBase
-from helper_utils.display_progress import progress_for_pyrogram
-
 from hachoir.metadata import extractMetadata
 from hachoir.parser import createParser
 from pyrogram import Client, filters
