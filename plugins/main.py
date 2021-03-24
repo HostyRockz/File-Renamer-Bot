@@ -10,4 +10,7 @@ from translation import Translation
 
 @Client.on_message(filters.command("start"))
 async def start(client, message):
-  await client.send_message(chat_id=message.chat.id, text=f"YO")
+    chatid = message.chat.id
+    name = await bot.ask(chatid, 'YOUR NAME')
+    got = name.text
+    await bot.send_message(chat_id=message.chat.id, text=f"{got}")
