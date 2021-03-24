@@ -3,3 +3,4 @@ pyrogram
 requests
 tgcrypto
 pyromod
+hachoir
