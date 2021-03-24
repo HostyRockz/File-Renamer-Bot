@@ -5,7 +5,7 @@ from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup, CallbackQ
 
 logging.basicConfig(level=logging.INFO)
 
-@Client.on_message(filters.private & filters.incoming & filters.command(['start']))
+@Client.on_message(filters.command(['start']))
 def _start(client, message):
     client.send_message(message.chat.id,
         text="YO",
