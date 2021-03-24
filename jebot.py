@@ -37,10 +37,15 @@ bot = Client(
 
 @bot.on_message(filters.command("start"))
 async def start(client, message):
-   if message.chat.type == 'supergroup':
-        user_status = bot.get_chat_member(message.chat.id, message.from_user.id)
-        bot.send_message(chat_id=message.chat.id, text=f"""{user_status.status}""", parse_mode="html")
+  chatid = message.chat.id
+  name = await bot.ask(chatid, 'YOUR NAME')
+  if await is_cancel(client, api.text):
+        return
+  try:
+     continue
 
+      
+      
 print("Yoo")
 
 bot.run()
