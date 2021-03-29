@@ -4,3 +4,7 @@ requests
 tgcrypto
 pyromod
 hachoir
+apscheduler
+sqlalchemy>=1.2
+psycopg2-binary
+pymongo
