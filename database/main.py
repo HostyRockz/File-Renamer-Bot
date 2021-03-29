@@ -8,9 +8,10 @@ class Stark(BASE):
     usage_limit = Column(Integer, default=0)
     user_limit = Column(Integer, default=0)
 
-    def __init__(self, user_id, usage_number):
+    def __init__(self, user_id, usage_limit, user_limit):
         self.user_id = user_id
-        self.usage_number = usage_number
+        self.usage_limit = usage_limit
+        self.user_limit = user_limit
 
 
 Stark.__table__.create(checkfirst=True)
