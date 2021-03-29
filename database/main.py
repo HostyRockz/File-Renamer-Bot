@@ -5,7 +5,7 @@ from __init__ import BASE, SESSION
 class Stark(BASE):
     __tablename__ = "AccountGenerator"
     user_id = Column(Integer, primary_key=True)
-    usage_number = Column(Integer, default=0)
+    usage_limit = Column(Integer, default=0)
     user_limit = Column(Integer, default=0)
 
     def __init__(self, user_id, usage_number):
