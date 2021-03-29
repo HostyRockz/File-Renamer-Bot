@@ -1,10 +1,15 @@
-from Configs import Config
-from pymongo import MongoClient
-from pymongo.errors import ConnectionFailure
+from sqlalchemy import Column, String, UnicodeText, Integer
+from __init__ import BASE, SESSION
 
-try:
-    mongo_client = MongoClient(Config.MONGO_DB)
-    mongo_client.server_info()
-except ConnectionFailure:
-    print("Invalid Mongo DB URL. Please Check Your Credentials!")
-    quit(1)
+
+class Stark(BASE):
+    __tablename__ = "stark"
+    user_id = Column(Integer, primary_key=True)
+    usage_number = Column(Integer, default=0)
+
+    def __init__(self, user_id, usage_number):
+        self.user_id = user_id
+        self.usage_number = usage_number
+
+
+Stark.__table__.create(checkfirst=True)
